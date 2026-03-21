@@ -25,7 +25,7 @@ There is no test suite yet. When adding tests, use Xcode's XCTest framework.
 
 - Swift macOS app using SwiftUI and the `@Observable` macro
 - Xcode project lives in `AhPushIt/AhPushIt.xcodeproj`
-- Source is under `AhPushIt/AhPushIt/` organized into: Models, Services, Settings, Polling, and supporting files
+- Source is under `AhPushIt/` organized into: Models, Services, Settings, Polling, and supporting files
 - Uses `modernc.org/sqlite`-style pure-Swift SQLite access (via a `SQLiteDatabase` wrapper)
 - The notification DB is opened **read-only**
 - The notification DB uses Core Data timestamps (seconds since Jan 1, 2001 UTC)

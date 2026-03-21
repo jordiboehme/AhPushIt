@@ -125,14 +125,13 @@ It polls for new records, parses the Apple plist blobs to extract app name, titl
 ahpushit/
 ├── AhPushIt/
 │   ├── AhPushIt.xcodeproj/
-│   └── AhPushIt/
-│       ├── App/              # App entry point, menubar UI, app state
-│       ├── Polling/          # SQLite access, plist parsing, polling engine
-│       ├── Services/         # Service implementations, template engine, protocol
-│       ├── Settings/         # SwiftUI settings tabs (Schedule, Filters, Services)
-│       ├── Models/           # Data models, settings persistence
-│       └── Resources/        # Assets, entitlements
-└── build/                    # Built .app output
+│   ├── App/              # App entry point, menubar UI, app state
+│   ├── Polling/          # SQLite access, plist parsing, polling engine
+│   ├── Services/         # Service implementations, template engine, protocol
+│   ├── Settings/         # SwiftUI settings tabs (Schedule, Filters, Services)
+│   ├── Models/           # Data models, settings persistence
+│   └── Resources/        # Assets, entitlements
+└── build/                # Built .app output
 ```
 
 ## Troubleshooting

@@ -105,7 +105,7 @@
 				A10005006 /* Models */,
 				A10005007 /* Resources */,
 			);
-			path = AhPushIt;
+			name = AhPushIt;
 			sourceTree = "<group>";
 		};
 		A10005002 /* App */ = {
@@ -420,7 +420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = AhPushIt/Resources/AhPushIt.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/AhPushIt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -443,7 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = AhPushIt/Resources/AhPushIt.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/AhPushIt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
