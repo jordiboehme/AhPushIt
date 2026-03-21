@@ -134,6 +134,10 @@ ahpushit/
 └── build/                # Built .app output
 ```
 
+## Recommended Companion App
+
+AhPushIt works best together with [Amphetamine](https://apps.apple.com/app/amphetamine/id937984704?mt=12). Amphetamine prevents your Mac from sleeping, ensuring AhPushIt can continuously poll for notifications and forward them without interruption.
+
 ## Troubleshooting
 
 ### App shows "Full Disk Access Required"
