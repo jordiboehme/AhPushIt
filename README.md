@@ -66,6 +66,10 @@ Then move `build/AhPushIt.app` to `/Applications` and launch it.
 
 > **Note**: Without Full Disk Access, the app cannot read the Notification Center database and will show an error in the menubar.
 
+## Privacy Notice
+
+AhPushIt forwards macOS notifications — including their titles, subtitles, and body text — to external services. Notifications may contain sensitive information such as two-factor authentication codes, private messages, banking alerts, or personal details. Be mindful of which apps you allow through the filter settings and which services you forward to, especially when using third-party or cloud-hosted endpoints.
+
 ## Usage
 
 ### Menubar
