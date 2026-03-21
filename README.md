@@ -30,27 +30,33 @@ A macOS menu bar app that forwards notifications from the macOS Notification Cen
 | **JSON HTTP** | Send to any HTTP endpoint as a JSON POST/PUT with custom headers, auth token, and body template. |
 | **CSV File** | Log notifications to local CSV files with configurable columns, directory, and filename template. |
 
-## Requirements
+## Installation
 
-- **macOS 14 Sonoma** or later
-- **Full Disk Access** permission (required to read the macOS Notification Center database)
+### Homebrew (recommended)
 
-## Quick Start
+```bash
+brew tap jordiboehme/tap
+brew install --cask ahpushit
+```
+
+### Download
+
+Grab the latest DMG from [GitHub Releases](https://github.com/jordiboehme/AhPushIt/releases), open it, and drag AhPushIt to Applications.
 
 ### Build from Source
 
 ```bash
 git clone https://github.com/jordiboehme/ahpushit.git
 cd ahpushit
-```
-
-Build with Xcode:
-
-```bash
 xcodebuild -project AhPushIt/AhPushIt.xcodeproj -scheme AhPushIt -configuration Release build CONFIGURATION_BUILD_DIR=build
 ```
 
 Then move `build/AhPushIt.app` to `/Applications` and launch it.
+
+## Requirements
+
+- **macOS 14 Sonoma** or later
+- **Full Disk Access** permission (required to read the macOS Notification Center database)
 
 ### Grant Full Disk Access
 
@@ -146,6 +152,26 @@ The app needs permission to read the Notification Center database. Go to **Syste
 ### App names showing as bundle identifiers
 
 Display name resolution uses `mdfind` (Spotlight). If an app isn't indexed by Spotlight, its bundle identifier is used as a fallback.
+
+## Releasing
+
+Tag a version and push to trigger the release pipeline (build, sign, notarize, DMG, GitHub Release, Homebrew tap update):
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+### GitHub Secrets Required
+
+| Secret | Description |
+|--------|-------------|
+| `DEVELOPER_ID_CERTIFICATE_BASE64` | Base64-encoded Developer ID Application `.p12` certificate |
+| `DEVELOPER_ID_CERTIFICATE_PASSWORD` | Password for the `.p12` file |
+| `APPLE_TEAM_ID` | Apple Developer Team ID |
+| `APPLE_ID` | Apple Developer account email |
+| `APPLE_ID_PASSWORD` | App-specific password from appleid.apple.com |
+| `TAP_GITHUB_TOKEN` | Fine-grained PAT with Contents write on `homebrew-tap` repo |
 
 ## License
 

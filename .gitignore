@@ -1,4 +1,20 @@
-.DS_STORE
+# Build artifacts
+build/
+DerivedData/
+*.app
+*.dmg
+*.dSYM
+
+# Xcode user data
+xcuserdata/
+*.xcuserstate
+
+# Code signing
+*.p12
+
+# macOS
+.DS_Store
+
+# Python (legacy)
 __pycache__
-3nv
-env
+env/
