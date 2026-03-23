@@ -40,6 +40,8 @@
 		A10001031 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002032 /* AboutView.swift */; };
 		A10001032 /* IdleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002033 /* IdleManager.swift */; };
 		A10001033 /* IMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002034 /* IMessageService.swift */; };
+		A10001034 /* HomeAssistantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002035 /* HomeAssistantService.swift */; };
+		A10001035 /* MQTTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002036 /* MQTTService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,8 @@
 		A10002032 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		A10002033 /* IdleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleManager.swift; sourceTree = "<group>"; };
 		A10002034 /* IMessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMessageService.swift; sourceTree = "<group>"; };
+		A10002035 /* HomeAssistantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssistantService.swift; sourceTree = "<group>"; };
+		A10002036 /* MQTTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTService.swift; sourceTree = "<group>"; };
 		A10003000 /* AhPushIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AhPushIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -150,6 +154,8 @@
 				A10002030 /* TelegramService.swift */,
 				A10002031 /* MattermostService.swift */,
 				A10002034 /* IMessageService.swift */,
+				A10002035 /* HomeAssistantService.swift */,
+				A10002036 /* MQTTService.swift */,
 				A10002010 /* TemplateEngine.swift */,
 			);
 			path = Services;
@@ -305,6 +311,8 @@
 				A10001031 /* AboutView.swift in Sources */,
 				A10001032 /* IdleManager.swift in Sources */,
 				A10001033 /* IMessageService.swift in Sources */,
+				A10001034 /* HomeAssistantService.swift in Sources */,
+				A10001035 /* MQTTService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

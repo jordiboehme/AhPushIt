@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What is AhPushIt?
 
-A native macOS menu bar app that polls the macOS Notification Center SQLite database for new notifications and forwards them to configurable services (ntfy, Pushover, Slack, Discord, Telegram, Mattermost, n8n, JSON HTTP webhooks, CSV file logging).
+A native macOS menu bar app that polls the macOS Notification Center SQLite database for new notifications and forwards them to configurable services (ntfy, Pushover, Slack, Discord, Telegram, Mattermost, Home Assistant, MQTT, n8n, JSON HTTP webhooks, CSV file logging).
 
 ## Build & run commands
 

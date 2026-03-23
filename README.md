@@ -1,6 +1,6 @@
 # Ah, push it
 
-A macOS menu bar app that forwards notifications from the macOS Notification Center to a wide range of services — ntfy, Pushover, Slack, Discord, Telegram, Mattermost, Apple Messages, n8n webhooks, generic JSON HTTP endpoints, and CSV file logging. Runs silently in your menubar, polling the system notification database and pushing new notifications to configurable endpoints with template support.
+A macOS menu bar app that forwards notifications from the macOS Notification Center to a wide range of services — ntfy, Pushover, Slack, Discord, Telegram, Mattermost, Apple Messages, Home Assistant, MQTT, n8n webhooks, generic JSON HTTP endpoints, and CSV file logging. Runs silently in your menubar, polling the system notification database and pushing new notifications to configurable endpoints with template support.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V31T6CL9)
 
@@ -8,7 +8,7 @@ A macOS menu bar app that forwards notifications from the macOS Notification Cen
 
 - **Menubar App** — Lives in your menubar with no Dock icon, shows forwarding status at a glance
 - **Real-Time Polling** — Configurable polling interval (default 5 seconds) for near-instant forwarding
-- **10 Notification Services** — Forward to ntfy, Pushover, Slack, Discord, Telegram, Mattermost, Apple Messages, n8n, JSON HTTP, or CSV files
+- **12 Notification Services** — Forward to ntfy, Pushover, Slack, Discord, Telegram, Mattermost, Apple Messages, Home Assistant, MQTT, n8n, JSON HTTP, or CSV files
 - **Multiple Endpoints** — Configure as many service instances as you need, each with independent settings and enable/disable toggles
 - **Template Engine** — Customize notification titles, messages, and tags using `{{placeholders}}` like `{{appName}}`, `{{title}}`, `{{body}}`
 - **App Filters** — Include or exclude specific apps by bundle identifier, with auto-discovery from the notification database
@@ -29,6 +29,8 @@ A macOS menu bar app that forwards notifications from the macOS Notification Cen
 | **Apple Messages** | Send notifications via Apple Messages using AppleScript. Requires a phone number or email. Messages.app notifications are automatically suppressed to prevent loops. |
 | **[n8n](https://n8n.io)** | Trigger n8n workflow automations via webhook URL. |
 | **JSON HTTP** | Send to any HTTP endpoint as a JSON POST/PUT with custom headers, auth token, and body template. |
+| **[Home Assistant](https://www.home-assistant.io)** | Fire events on a Home Assistant instance via the Events API. Supports custom event types. |
+| **MQTT** | Publish notifications to an MQTT broker. Supports TLS, authentication, custom topics, and payload templates. |
 | **CSV File** | Log notifications to local CSV files with configurable columns, directory, and filename template. |
 
 ## Installation
@@ -114,6 +116,10 @@ Service-specific parameters (server URLs, tokens, topics, etc.) are shown in the
 | `{{timestamp}}` | Unix timestamp |
 | `{{isoDate}}` | ISO 8601 date |
 
+## Recommended Companion App
+
+AhPushIt works best together with [Amphetamine](https://apps.apple.com/app/amphetamine/id937984704?mt=12). Amphetamine prevents your Mac from sleeping, ensuring AhPushIt can continuously poll for notifications and forward them without interruption.
+
 ## How It Works
 
 AhPushIt reads the macOS Notification Center SQLite database located at:
@@ -139,10 +145,6 @@ ahpushit/
 └── build/                # Built .app output
 ```
 
-## Recommended Companion App
-
-AhPushIt works best together with [Amphetamine](https://apps.apple.com/app/amphetamine/id937984704?mt=12). Amphetamine prevents your Mac from sleeping, ensuring AhPushIt can continuously poll for notifications and forward them without interruption.
-
 ## Troubleshooting
 
 ### App shows "Full Disk Access Required"
@@ -160,26 +162,6 @@ The app needs permission to read the Notification Center database. Go to **Syste
 ### App names showing as bundle identifiers
 
 Display name resolution uses `mdfind` (Spotlight). If an app isn't indexed by Spotlight, its bundle identifier is used as a fallback.
-
-## Releasing
-
-Tag a version and push to trigger the release pipeline (build, sign, notarize, DMG, GitHub Release, Homebrew tap update):
-
-```bash
-git tag v1.0.0
-git push origin v1.0.0
-```
-
-### GitHub Secrets Required
-
-| Secret | Description |
-|--------|-------------|
-| `DEVELOPER_ID_CERTIFICATE_BASE64` | Base64-encoded Developer ID Application `.p12` certificate |
-| `DEVELOPER_ID_CERTIFICATE_PASSWORD` | Password for the `.p12` file |
-| `APPLE_TEAM_ID` | Apple Developer Team ID |
-| `APPLE_ID` | Apple Developer account email |
-| `APPLE_ID_PASSWORD` | App-specific password from appleid.apple.com |
-| `TAP_GITHUB_TOKEN` | Fine-grained PAT with Contents write on `homebrew-tap` repo |
 
 ## License
 

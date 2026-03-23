@@ -169,6 +169,8 @@ struct ServiceConfiguration: Identifiable, Codable, Equatable {
         case .telegram: return TelegramService(configuration: self)
         case .mattermost: return MattermostService(configuration: self)
         case .iMessage: return IMessageService(configuration: self)
+        case .homeAssistant: return HomeAssistantService(configuration: self)
+        case .mqtt: return MQTTService(configuration: self)
         }
     }
 
@@ -188,6 +190,12 @@ struct ServiceConfiguration: Identifiable, Codable, Equatable {
             return "Chat \(parameters["chatID"] ?? "")"
         case .iMessage:
             return parameters["recipient"] ?? ""
+        case .homeAssistant:
+            return parameters["baseURL"] ?? ""
+        case .mqtt:
+            let broker = parameters["broker"] ?? ""
+            let topic = parameters["topic"] ?? ""
+            return topic.isEmpty ? broker : "\(broker)/\(topic)"
         }
     }
 
@@ -256,6 +264,8 @@ enum ServiceType: String, Codable, CaseIterable {
     case telegram
     case mattermost
     case iMessage
+    case homeAssistant
+    case mqtt
 
     var displayName: String {
         switch self {
@@ -269,6 +279,8 @@ enum ServiceType: String, Codable, CaseIterable {
         case .telegram: return "Telegram"
         case .mattermost: return "Mattermost"
         case .iMessage: return "Apple Messages"
+        case .homeAssistant: return "Home Assistant"
+        case .mqtt: return "MQTT"
         }
     }
 
@@ -284,6 +296,8 @@ enum ServiceType: String, Codable, CaseIterable {
         case .telegram: return "paperplane"
         case .mattermost: return "message"
         case .iMessage: return "message.fill"
+        case .homeAssistant: return "house"
+        case .mqtt: return "antenna.radiowaves.left.and.right"
         }
     }
 
@@ -374,6 +388,30 @@ enum ServiceType: String, Codable, CaseIterable {
         case .iMessage:
             return [
                 ParameterDefinition(key: "recipient", label: "Recipient", placeholder: "+1234567890 or email@example.com", fieldType: .text, isRequired: true, defaultValue: ""),
+            ]
+        case .homeAssistant:
+            return [
+                ParameterDefinition(key: "baseURL", label: "Server URL", placeholder: "http://homeassistant.local:8123", fieldType: .text, isRequired: true, defaultValue: "http://homeassistant.local:8123"),
+                ParameterDefinition(key: "accessToken", label: "Access Token", placeholder: "Long-lived access token", fieldType: .secure, isRequired: true, defaultValue: ""),
+                ParameterDefinition(key: "eventType", label: "Event Type", placeholder: "ahpushit_notification", fieldType: .text, isRequired: false, defaultValue: "ahpushit_notification"),
+            ]
+        case .mqtt:
+            return [
+                ParameterDefinition(key: "broker", label: "Broker", placeholder: "mqtt.example.com", fieldType: .text, isRequired: true, defaultValue: ""),
+                ParameterDefinition(key: "port", label: "Port", placeholder: "1883", fieldType: .text, isRequired: false, defaultValue: "1883"),
+                ParameterDefinition(key: "useTLS", label: "Use TLS", placeholder: "", fieldType: .picker([
+                    (label: "No", value: "false"),
+                    (label: "Yes", value: "true"),
+                ]), isRequired: false, defaultValue: "false"),
+                ParameterDefinition(key: "username", label: "Username", placeholder: "Optional", fieldType: .text, isRequired: false, defaultValue: ""),
+                ParameterDefinition(key: "password", label: "Password", placeholder: "Optional", fieldType: .secure, isRequired: false, defaultValue: ""),
+                ParameterDefinition(key: "clientID", label: "Client ID", placeholder: "ahpushit", fieldType: .text, isRequired: false, defaultValue: "ahpushit"),
+                ParameterDefinition(key: "topic", label: "Topic", placeholder: "ahpushit/notifications", fieldType: .template, isRequired: true, defaultValue: "ahpushit/notifications"),
+                ParameterDefinition(key: "retain", label: "Retain", placeholder: "", fieldType: .picker([
+                    (label: "No", value: "false"),
+                    (label: "Yes", value: "true"),
+                ]), isRequired: false, defaultValue: "false"),
+                ParameterDefinition(key: "payloadTemplate", label: "Payload", placeholder: "{\"title\":\"{{title}}\"}", fieldType: .template, isRequired: false, defaultValue: "{\"title\":\"{{title}}\",\"message\":\"{{message}}\",\"app\":\"{{appName}}\",\"date\":\"{{isoDate}}\"}"),
             ]
         }
     }
