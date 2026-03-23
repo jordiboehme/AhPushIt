@@ -38,7 +38,6 @@ struct ServicesPane: View {
                     ForEach(ServiceType.allCases, id: \.self) { type in
                         Button {
                             let config = ServiceConfiguration.defaultConfiguration(for: type)
-                            settings.serviceConfigurations.append(config)
                             editingService = config
                         } label: {
                             Label(type.displayName, systemImage: type.icon)
@@ -91,6 +90,8 @@ struct ServicesPane: View {
             ServiceEditorView(configuration: service) { updated in
                 if let idx = settings.serviceConfigurations.firstIndex(where: { $0.id == updated.id }) {
                     settings.serviceConfigurations[idx] = updated
+                } else {
+                    settings.serviceConfigurations.append(updated)
                 }
                 editingService = nil
             } onCancel: {
