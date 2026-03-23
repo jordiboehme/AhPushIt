@@ -4,6 +4,7 @@ enum SettingsTab: String, CaseIterable, Identifiable {
     case general = "General"
     case filters = "Filters"
     case services = "Services"
+    case about = "About"
 
     var id: String { rawValue }
 
@@ -12,6 +13,7 @@ enum SettingsTab: String, CaseIterable, Identifiable {
         case .general: return "gearshape"
         case .filters: return "line.3.horizontal.decrease.circle"
         case .services: return "paperplane"
+        case .about: return "info.circle"
         }
     }
 }
@@ -36,6 +38,8 @@ struct SettingsView: View {
                     FiltersPane()
                 case .services:
                     ServicesPane()
+                case .about:
+                    AboutPane()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

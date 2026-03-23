@@ -7,36 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A10001001 /* AhPushItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002001; };
-		A10001002 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002002; };
-		A10001003 /* NotificationPoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002003; };
-		A10001004 /* NotificationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002004; };
-		A10001005 /* PlistParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002005; };
-		A10001006 /* BundleNameResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002006; };
-		A10001007 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002007; };
-		A10001008 /* NotificationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002008; };
-		A10001009 /* NtfyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002009; };
-		A10001010 /* TemplateEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002010; };
-		A10001011 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002011; };
-		A10001012 /* TimeWindowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002012; };
-		A10001013 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002013; };
-		A10001014 /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002014; };
-		A10001015 /* ServiceEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002015; };
-		A10001016 /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002016; };
-		A10001017 /* TimeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002017; };
-		A10001018 /* FilterRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002018; };
-		A10001019 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002019; };
-		A10001020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10002020; };
-		A10001021 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A10002021; };
-		A10001022 /* ParameterDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002023; };
-		A10001023 /* N8nService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002024; };
-		A10001024 /* PushoverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002025; };
-		A10001025 /* JSONHTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002026; };
-		A10001026 /* CSVFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002027; };
-		A10001027 /* SlackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002028; };
-		A10001028 /* DiscordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002029; };
-		A10001029 /* TelegramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002030; };
-		A10001030 /* MattermostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002031; };
+		A10001001 /* AhPushItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002001 /* AhPushItApp.swift */; };
+		A10001002 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002002 /* AppState.swift */; };
+		A10001003 /* NotificationPoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002003 /* NotificationPoller.swift */; };
+		A10001004 /* NotificationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002004 /* NotificationRecord.swift */; };
+		A10001005 /* PlistParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002005 /* PlistParser.swift */; };
+		A10001006 /* BundleNameResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002006 /* BundleNameResolver.swift */; };
+		A10001007 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002007 /* SQLiteDatabase.swift */; };
+		A10001008 /* NotificationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002008 /* NotificationServiceProtocol.swift */; };
+		A10001009 /* NtfyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002009 /* NtfyService.swift */; };
+		A10001010 /* TemplateEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002010 /* TemplateEngine.swift */; };
+		A10001011 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002011 /* SettingsView.swift */; };
+		A10001012 /* TimeWindowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002012 /* TimeWindowsView.swift */; };
+		A10001013 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002013 /* FiltersView.swift */; };
+		A10001014 /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002014 /* ServicesView.swift */; };
+		A10001015 /* ServiceEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002015 /* ServiceEditorView.swift */; };
+		A10001016 /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002016 /* AppNotification.swift */; };
+		A10001017 /* TimeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002017 /* TimeWindow.swift */; };
+		A10001018 /* FilterRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002018 /* FilterRule.swift */; };
+		A10001019 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002019 /* AppSettings.swift */; };
+		A10001020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10002020 /* Assets.xcassets */; };
+		A10001021 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A10002021 /* libsqlite3.tbd */; };
+		A10001022 /* ParameterDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002023 /* ParameterDefinition.swift */; };
+		A10001023 /* N8nService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002024 /* N8nService.swift */; };
+		A10001024 /* PushoverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002025 /* PushoverService.swift */; };
+		A10001025 /* JSONHTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002026 /* JSONHTTPService.swift */; };
+		A10001026 /* CSVFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002027 /* CSVFileService.swift */; };
+		A10001027 /* SlackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002028 /* SlackService.swift */; };
+		A10001028 /* DiscordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002029 /* DiscordService.swift */; };
+		A10001029 /* TelegramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002030 /* TelegramService.swift */; };
+		A10001030 /* MattermostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002031 /* MattermostService.swift */; };
+		A10001031 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002032 /* AboutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		A10002029 /* DiscordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscordService.swift; sourceTree = "<group>"; };
 		A10002030 /* TelegramService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramService.swift; sourceTree = "<group>"; };
 		A10002031 /* MattermostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MattermostService.swift; sourceTree = "<group>"; };
+		A10002032 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		A10003000 /* AhPushIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AhPushIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,7 +88,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A10005000 /* Root */ = {
+		A10005000 = {
 			isa = PBXGroup;
 			children = (
 				A10005001 /* AhPushIt */,
@@ -155,6 +157,7 @@
 				A10002013 /* FiltersView.swift */,
 				A10002014 /* ServicesView.swift */,
 				A10002015 /* ServiceEditorView.swift */,
+				A10002032 /* AboutView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -201,7 +204,7 @@
 /* Begin PBXNativeTarget section */
 		A10006001 /* AhPushIt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A10008001;
+			buildConfigurationList = A10008001 /* Build configuration list for PBXNativeTarget "AhPushIt" */;
 			buildPhases = (
 				A10007001 /* Sources */,
 				A10004001 /* Frameworks */,
@@ -213,7 +216,7 @@
 			);
 			name = AhPushIt;
 			productName = AhPushIt;
-			productReference = A10003000;
+			productReference = A10003000 /* AhPushIt.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -231,7 +234,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A10008003;
+			buildConfigurationList = A10008003 /* Build configuration list for PBXProject "AhPushIt" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -240,7 +243,7 @@
 				Base,
 			);
 			mainGroup = A10005000;
-			productRefGroup = A10005010;
+			productRefGroup = A10005010 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -293,6 +296,7 @@
 				A10001028 /* DiscordService.swift in Sources */,
 				A10001029 /* TelegramService.swift in Sources */,
 				A10001030 /* MattermostService.swift in Sources */,
+				A10001031 /* AboutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +428,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 77PA95K95V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -447,7 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 77PA95K95V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -483,7 +487,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
 	};
 	rootObject = A10009001 /* Project object */;
 }
