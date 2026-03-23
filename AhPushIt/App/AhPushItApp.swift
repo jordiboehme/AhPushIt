@@ -59,7 +59,9 @@ struct MenuBarView: View {
             Divider()
 
             Button("Quit") {
-                NSApplication.shared.terminate(nil)
+                DispatchQueue.main.async {
+                    NSApplication.shared.terminate(nil)
+                }
             }
             .keyboardShortcut("q")
         }
