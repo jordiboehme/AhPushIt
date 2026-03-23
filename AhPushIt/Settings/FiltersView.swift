@@ -57,7 +57,7 @@ struct FiltersPane: View {
                     HStack(spacing: 6) {
                         Image(systemName: "info.circle.fill")
                             .foregroundStyle(.blue)
-                        Text("iMessage notifications are automatically blocked to prevent loops with the iMessage service.")
+                        Text("Messages notifications are automatically blocked to prevent loops with the Apple Messages service.")
                             .font(.callout)
                     }
                     .padding(8)

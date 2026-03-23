@@ -1,6 +1,6 @@
 # Ah, push it
 
-A macOS menu bar app that forwards notifications from the macOS Notification Center to a wide range of services — ntfy, Pushover, Slack, Discord, Telegram, Mattermost, iMessage, n8n webhooks, generic JSON HTTP endpoints, and CSV file logging. Runs silently in your menubar, polling the system notification database and pushing new notifications to configurable endpoints with template support.
+A macOS menu bar app that forwards notifications from the macOS Notification Center to a wide range of services — ntfy, Pushover, Slack, Discord, Telegram, Mattermost, Apple Messages, n8n webhooks, generic JSON HTTP endpoints, and CSV file logging. Runs silently in your menubar, polling the system notification database and pushing new notifications to configurable endpoints with template support.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V31T6CL9)
 
@@ -8,7 +8,7 @@ A macOS menu bar app that forwards notifications from the macOS Notification Cen
 
 - **Menubar App** — Lives in your menubar with no Dock icon, shows forwarding status at a glance
 - **Real-Time Polling** — Configurable polling interval (default 5 seconds) for near-instant forwarding
-- **10 Notification Services** — Forward to ntfy, Pushover, Slack, Discord, Telegram, Mattermost, iMessage, n8n, JSON HTTP, or CSV files
+- **10 Notification Services** — Forward to ntfy, Pushover, Slack, Discord, Telegram, Mattermost, Apple Messages, n8n, JSON HTTP, or CSV files
 - **Multiple Endpoints** — Configure as many service instances as you need, each with independent settings and enable/disable toggles
 - **Template Engine** — Customize notification titles, messages, and tags using `{{placeholders}}` like `{{appName}}`, `{{title}}`, `{{body}}`
 - **App Filters** — Include or exclude specific apps by bundle identifier, with auto-discovery from the notification database
@@ -26,7 +26,7 @@ A macOS menu bar app that forwards notifications from the macOS Notification Cen
 | **[Discord](https://discord.com)** | Post to Discord channels via webhooks. |
 | **[Telegram](https://telegram.org)** | Send messages via Telegram Bot API with bot token and chat ID. |
 | **[Mattermost](https://mattermost.com)** | Post to Mattermost channels via incoming webhooks. |
-| **iMessage** | Send notifications as iMessages via AppleScript. Requires a phone number or email. Messages.app notifications are automatically suppressed to prevent loops. |
+| **Apple Messages** | Send notifications via Apple Messages using AppleScript. Requires a phone number or email. Messages.app notifications are automatically suppressed to prevent loops. |
 | **[n8n](https://n8n.io)** | Trigger n8n workflow automations via webhook URL. |
 | **JSON HTTP** | Send to any HTTP endpoint as a JSON POST/PUT with custom headers, auth token, and body template. |
 | **CSV File** | Log notifications to local CSV files with configurable columns, directory, and filename template. |

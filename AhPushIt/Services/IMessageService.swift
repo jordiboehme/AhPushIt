@@ -67,8 +67,8 @@ enum IMessageError: LocalizedError {
 
     var errorDescription: String? {
         switch self {
-        case .missingRecipient: return "iMessage recipient is required"
-        case .scriptError(let code, let stderr): return "iMessage script failed (\(code)): \(stderr)"
+        case .missingRecipient: return "Apple Messages recipient is required"
+        case .scriptError(let code, let stderr): return "Apple Messages script failed (\(code)): \(stderr)"
         }
     }
 }

@@ -268,7 +268,7 @@ enum ServiceType: String, Codable, CaseIterable {
         case .discord: return "Discord"
         case .telegram: return "Telegram"
         case .mattermost: return "Mattermost"
-        case .iMessage: return "iMessage"
+        case .iMessage: return "Apple Messages"
         }
     }
 
