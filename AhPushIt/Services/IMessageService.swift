@@ -32,10 +32,7 @@ struct IMessageService: NotificationService {
 
         let script = """
             tell application "Messages"
-                set targetBuddy to "\(escapedRecipient)"
-                set targetService to 1st account whose service type = iMessage
-                set theMessage to "\(escapedText)"
-                send theMessage to participant targetBuddy of account targetService
+                send "\(escapedText)" to buddy "\(escapedRecipient)"
             end tell
             """
 
