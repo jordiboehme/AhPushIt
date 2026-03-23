@@ -72,15 +72,15 @@ final class NotificationPoller {
         guard !isChecking else { return }
         guard let db = database else { return }
 
-        // Check schedule before doing any DB work
-        guard settings.isWithinSchedule() else { return }
+        // Forwarding gates: schedule and away detection (OR when both enabled)
+        let inSchedule = settings.isWithinSchedule()
 
-        // Away detection gate
+        var isAway = false
         if settings.awayDetectionEnabled {
             let idleSeconds = idleManager.idleTimeSeconds
             let thresholdSeconds = Double(settings.awayAfterMinutes * 60)
-            let isAway = idleSeconds >= thresholdSeconds
-                         || (settings.forwardOnScreenLock && idleManager.isScreenLocked)
+            isAway = idleSeconds >= thresholdSeconds
+                     || (settings.forwardOnScreenLock && idleManager.isScreenLocked)
 
             if !wasUserAway && isAway {
                 // Transition: just went away — cap backfill to threshold
@@ -88,9 +88,18 @@ final class NotificationPoller {
                 lastDate = max(lastDate, backfillDate)
             }
             wasUserAway = isAway
-
-            guard isAway else { return }
         }
+
+        // If both features are enabled, forward when either condition is met.
+        // If only one is enabled, that single condition must be met.
+        let shouldForward: Bool
+        switch (settings.scheduleEnabled, settings.awayDetectionEnabled) {
+        case (true, true):   shouldForward = inSchedule || isAway
+        case (true, false):  shouldForward = inSchedule
+        case (false, true):  shouldForward = isAway
+        case (false, false): shouldForward = true
+        }
+        guard shouldForward else { return }
 
         isChecking = true
         defer { isChecking = false }

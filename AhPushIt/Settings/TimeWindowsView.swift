@@ -29,7 +29,7 @@ struct GeneralPane: View {
 
                 GroupBox {
                     VStack(alignment: .leading, spacing: 12) {
-                        Toggle("Only forward during scheduled windows", isOn: $settings.scheduleEnabled)
+                        Toggle("Forward during scheduled windows", isOn: $settings.scheduleEnabled)
 
                         if settings.scheduleEnabled {
                             Divider()
@@ -81,7 +81,7 @@ struct GeneralPane: View {
 
                 GroupBox {
                     VStack(alignment: .leading, spacing: 12) {
-                        Toggle("Only forward when away from Mac", isOn: $settings.awayDetectionEnabled)
+                        Toggle("Forward when away from Mac", isOn: $settings.awayDetectionEnabled)
 
                         if settings.awayDetectionEnabled {
                             Divider()
@@ -111,6 +111,16 @@ struct GeneralPane: View {
                         }
                     }
                     .padding(.vertical, 2)
+                }
+
+                if settings.scheduleEnabled && settings.awayDetectionEnabled {
+                    HStack(alignment: .top, spacing: 4) {
+                        Image(systemName: "info.circle")
+                            .foregroundStyle(.secondary)
+                        Text("Notifications are forwarded when either condition is met — during a scheduled window or when you're away.")
+                            .foregroundStyle(.secondary)
+                            .font(.callout)
+                    }
                 }
             }
             .padding(20)
