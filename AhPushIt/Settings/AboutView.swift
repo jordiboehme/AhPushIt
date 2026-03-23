@@ -1,9 +1,6 @@
-import ServiceManagement
 import SwiftUI
 
 struct AboutPane: View {
-    @State private var launchAtLogin = SMAppService.mainApp.status == .enabled
-
     var body: some View {
         VStack(spacing: 0) {
             SectionHeader(title: "About", icon: "info.circle")
@@ -36,24 +33,6 @@ struct AboutPane: View {
                             .foregroundStyle(.secondary)
                     }
                     .padding(.top, 8)
-
-                    Divider()
-                        .padding(.horizontal, 20)
-
-                    // Launch at Login
-                    Toggle("Launch at Login", isOn: $launchAtLogin)
-                        .onChange(of: launchAtLogin) { _, newValue in
-                            do {
-                                if newValue {
-                                    try SMAppService.mainApp.register()
-                                } else {
-                                    try SMAppService.mainApp.unregister()
-                                }
-                            } catch {
-                                launchAtLogin = SMAppService.mainApp.status == .enabled
-                            }
-                        }
-                        .padding(.horizontal, 20)
 
                     Divider()
                         .padding(.horizontal, 20)

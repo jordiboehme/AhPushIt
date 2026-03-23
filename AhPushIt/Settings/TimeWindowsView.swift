@@ -1,13 +1,34 @@
+import ServiceManagement
 import SwiftUI
 
 struct GeneralPane: View {
     @Bindable private var settings = AppSettings.shared
+    @State private var launchAtLogin = SMAppService.mainApp.status == .enabled
 
     private let weekdaySymbols = Calendar.current.shortWeekdaySymbols // ["Sun","Mon",...]
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
+                // MARK: - Launch at Login
+                SectionHeader(title: "Startup", icon: "power")
+
+                GroupBox {
+                    Toggle("Launch at Login", isOn: $launchAtLogin)
+                        .onChange(of: launchAtLogin) { _, newValue in
+                            do {
+                                if newValue {
+                                    try SMAppService.mainApp.register()
+                                } else {
+                                    try SMAppService.mainApp.unregister()
+                                }
+                            } catch {
+                                launchAtLogin = SMAppService.mainApp.status == .enabled
+                            }
+                        }
+                        .padding(.vertical, 2)
+                }
+
                 // MARK: - Polling
                 SectionHeader(title: "Polling", icon: "arrow.triangle.2.circlepath")
 
