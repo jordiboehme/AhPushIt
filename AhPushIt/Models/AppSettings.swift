@@ -112,6 +112,13 @@ final class AppSettings {
     }
 
     func shouldForward(bundleIdentifier: String, displayName: String) -> Bool {
+        if bundleIdentifier == "com.apple.iChat" {
+            let hasEnabledIMessage = serviceConfigurations.contains {
+                $0.type == .iMessage && $0.isEnabled
+            }
+            if hasEnabledIMessage { return false }
+        }
+
         let selectedRules = filterRules.filter(\.isSelected)
         if selectedRules.isEmpty { return true }
 
@@ -161,6 +168,7 @@ struct ServiceConfiguration: Identifiable, Codable, Equatable {
         case .discord: return DiscordService(configuration: self)
         case .telegram: return TelegramService(configuration: self)
         case .mattermost: return MattermostService(configuration: self)
+        case .iMessage: return IMessageService(configuration: self)
         }
     }
 
@@ -178,6 +186,8 @@ struct ServiceConfiguration: Identifiable, Codable, Equatable {
             return parameters["webhookURL"] ?? parameters["url"] ?? ""
         case .telegram:
             return "Chat \(parameters["chatID"] ?? "")"
+        case .iMessage:
+            return parameters["recipient"] ?? ""
         }
     }
 
@@ -245,6 +255,7 @@ enum ServiceType: String, Codable, CaseIterable {
     case discord
     case telegram
     case mattermost
+    case iMessage
 
     var displayName: String {
         switch self {
@@ -257,6 +268,7 @@ enum ServiceType: String, Codable, CaseIterable {
         case .discord: return "Discord"
         case .telegram: return "Telegram"
         case .mattermost: return "Mattermost"
+        case .iMessage: return "iMessage"
         }
     }
 
@@ -271,6 +283,7 @@ enum ServiceType: String, Codable, CaseIterable {
         case .discord: return "bubble.left.and.bubble.right"
         case .telegram: return "paperplane"
         case .mattermost: return "message"
+        case .iMessage: return "message.fill"
         }
     }
 
@@ -357,6 +370,10 @@ enum ServiceType: String, Codable, CaseIterable {
         case .mattermost:
             return [
                 ParameterDefinition(key: "webhookURL", label: "Webhook URL", placeholder: "https://mattermost.example.com/hooks/...", fieldType: .text, isRequired: true, defaultValue: ""),
+            ]
+        case .iMessage:
+            return [
+                ParameterDefinition(key: "recipient", label: "Recipient", placeholder: "+1234567890 or email@example.com", fieldType: .text, isRequired: true, defaultValue: ""),
             ]
         }
     }
