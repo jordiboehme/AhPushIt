@@ -30,7 +30,9 @@ struct MenuBarView: View {
         VStack {
             if appState.showFullDiskAccessAlert {
                 Button("Full Disk Access Required") {
-                    showingPermissionAlert = true
+                    if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles") {
+                        NSWorkspace.shared.open(url)
+                    }
                 }
                 .foregroundStyle(.red)
                 Divider()
@@ -61,18 +63,23 @@ struct MenuBarView: View {
             }
             .keyboardShortcut("q")
         }
+        .onAppear {
+            showingPermissionAlert = appState.showFullDiskAccessAlert
+        }
+        .onChange(of: appState.showFullDiskAccessAlert) { _, newValue in
+            showingPermissionAlert = newValue
+        }
         .alert("Full Disk Access Required", isPresented: $showingPermissionAlert) {
             Button("Open System Settings") {
                 if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles") {
                     NSWorkspace.shared.open(url)
                 }
             }
-            Button("Retry") {
-                appState.start()
+            Button("Quit", role: .cancel) {
+                NSApplication.shared.terminate(nil)
             }
-            Button("Cancel", role: .cancel) {}
         } message: {
-            Text("AhPushIt needs Full Disk Access to read the macOS Notification Center database.\n\nGo to System Settings > Privacy & Security > Full Disk Access and enable AhPushIt.")
+            Text("AhPushIt needs Full Disk Access to read the macOS Notification Center database.\n\nGo to System Settings > Privacy & Security > Full Disk Access and enable AhPushIt. The app will automatically start when you return.")
         }
     }
 
