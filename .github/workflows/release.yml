@@ -129,8 +129,8 @@ jobs:
           VERSION="${{ steps.version.outputs.VERSION }}"
           SHA256="${{ steps.sha.outputs.SHA256 }}"
 
-          git clone https://x-access-token:${TAP_GITHUB_TOKEN}@github.com/jordiboehme/homebrew-tap.git \
-            ${{ runner.temp }}/homebrew-tap
+          git clone "https://x-access-token:${TAP_GITHUB_TOKEN}@github.com/jordiboehme/homebrew-tap.git" \
+            "${{ runner.temp }}/homebrew-tap"
 
           mkdir -p ${{ runner.temp }}/homebrew-tap/Casks
 
