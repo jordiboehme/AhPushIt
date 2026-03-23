@@ -82,7 +82,7 @@ final class AppSettings {
            let configs = try? JSONDecoder().decode([ServiceConfiguration].self, from: data) {
             self.serviceConfigurations = configs
         } else {
-            self.serviceConfigurations = [ServiceConfiguration.defaultConfiguration(for: .ntfy)]
+            self.serviceConfigurations = []
         }
     }
 
