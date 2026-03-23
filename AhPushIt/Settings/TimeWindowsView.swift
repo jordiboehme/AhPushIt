@@ -76,6 +76,42 @@ struct GeneralPane: View {
                     }
                     .padding(.vertical, 2)
                 }
+                // MARK: - Away Detection
+                SectionHeader(title: "Away Detection", icon: "person.fill.questionmark")
+
+                GroupBox {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Toggle("Only forward when away from Mac", isOn: $settings.awayDetectionEnabled)
+
+                        if settings.awayDetectionEnabled {
+                            Divider()
+
+                            HStack {
+                                Text("Forward after")
+                                Stepper(value: $settings.awayAfterMinutes, in: 1...60) {
+                                    Text("\(settings.awayAfterMinutes)")
+                                        .monospacedDigit()
+                                        .frame(minWidth: 20, alignment: .center)
+                                }
+                                Text(settings.awayAfterMinutes == 1 ? "minute" : "minutes")
+                                Text("of inactivity")
+                                Spacer()
+                            }
+
+                            Toggle("Also forward when screen is locked", isOn: $settings.forwardOnScreenLock)
+
+                            HStack(alignment: .top, spacing: 4) {
+                                Image(systemName: "info.circle")
+                                    .foregroundStyle(.secondary)
+                                Text("Notifications from the last \(settings.awayAfterMinutes) \(settings.awayAfterMinutes == 1 ? "minute" : "minutes") will be included when forwarding starts, so you won't miss anything.")
+                                    .foregroundStyle(.secondary)
+                                    .font(.callout)
+                            }
+                            .padding(.top, 2)
+                        }
+                    }
+                    .padding(.vertical, 2)
+                }
             }
             .padding(20)
         }

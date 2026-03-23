@@ -25,6 +25,20 @@ final class AppSettings {
         }
     }
 
+    // MARK: - Away Detection
+
+    var awayDetectionEnabled: Bool {
+        didSet { UserDefaults.standard.set(awayDetectionEnabled, forKey: "awayDetectionEnabled") }
+    }
+
+    var awayAfterMinutes: Int {
+        didSet { UserDefaults.standard.set(awayAfterMinutes, forKey: "awayAfterMinutes") }
+    }
+
+    var forwardOnScreenLock: Bool {
+        didSet { UserDefaults.standard.set(forwardOnScreenLock, forKey: "forwardOnScreenLock") }
+    }
+
     // MARK: - Filters
 
     var filterMode: FilterMode {
@@ -56,6 +70,9 @@ final class AppSettings {
 
         self.pollInterval = defaults.object(forKey: "pollInterval") as? Int ?? 5
         self.scheduleEnabled = defaults.bool(forKey: "scheduleEnabled")
+        self.awayDetectionEnabled = defaults.bool(forKey: "awayDetectionEnabled")
+        self.awayAfterMinutes = defaults.object(forKey: "awayAfterMinutes") as? Int ?? 5
+        self.forwardOnScreenLock = defaults.object(forKey: "forwardOnScreenLock") as? Bool ?? true
 
         if let data = defaults.data(forKey: "timeWindows"),
            let windows = try? JSONDecoder().decode([TimeWindow].self, from: data) {

@@ -38,6 +38,7 @@
 		A10001029 /* TelegramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002030 /* TelegramService.swift */; };
 		A10001030 /* MattermostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002031 /* MattermostService.swift */; };
 		A10001031 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002032 /* AboutView.swift */; };
+		A10001032 /* IdleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10002033 /* IdleManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		A10002030 /* TelegramService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramService.swift; sourceTree = "<group>"; };
 		A10002031 /* MattermostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MattermostService.swift; sourceTree = "<group>"; };
 		A10002032 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		A10002033 /* IdleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleManager.swift; sourceTree = "<group>"; };
 		A10003000 /* AhPushIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AhPushIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 				A10002005 /* PlistParser.swift */,
 				A10002006 /* BundleNameResolver.swift */,
 				A10002007 /* SQLiteDatabase.swift */,
+				A10002033 /* IdleManager.swift */,
 			);
 			path = Polling;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				A10001029 /* TelegramService.swift in Sources */,
 				A10001030 /* MattermostService.swift in Sources */,
 				A10001031 /* AboutView.swift in Sources */,
+				A10001032 /* IdleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

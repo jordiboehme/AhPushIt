@@ -7,6 +7,8 @@ final class NotificationPoller {
     private var lastID: Int64 = 0
     private var lastDate: Double = 0
     private var isChecking = false
+    private let idleManager = IdleManager()
+    private var wasUserAway = false
 
     private(set) var forwardedCount: Int = 0
     private(set) var lastForwardedTime: Date?
@@ -35,6 +37,7 @@ final class NotificationPoller {
         }
 
         lastError = nil
+        idleManager.start()
         scheduleTimer()
     }
 
@@ -42,6 +45,7 @@ final class NotificationPoller {
         timer?.invalidate()
         timer = nil
         database = nil
+        idleManager.stop()
     }
 
     func restart() {
@@ -70,6 +74,23 @@ final class NotificationPoller {
 
         // Check schedule before doing any DB work
         guard settings.isWithinSchedule() else { return }
+
+        // Away detection gate
+        if settings.awayDetectionEnabled {
+            let idleSeconds = idleManager.idleTimeSeconds
+            let thresholdSeconds = Double(settings.awayAfterMinutes * 60)
+            let isAway = idleSeconds >= thresholdSeconds
+                         || (settings.forwardOnScreenLock && idleManager.isScreenLocked)
+
+            if !wasUserAway && isAway {
+                // Transition: just went away — cap backfill to threshold
+                let backfillDate = Date().timeIntervalSinceReferenceDate - thresholdSeconds
+                lastDate = max(lastDate, backfillDate)
+            }
+            wasUserAway = isAway
+
+            guard isAway else { return }
+        }
 
         isChecking = true
         defer { isChecking = false }
