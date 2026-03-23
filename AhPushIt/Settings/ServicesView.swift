@@ -40,7 +40,10 @@ struct ServicesPane: View {
                             let config = ServiceConfiguration.defaultConfiguration(for: type)
                             editingService = config
                         } label: {
-                            Label(type.displayName, systemImage: type.icon)
+                            HStack {
+                                Image(systemName: type.icon)
+                                Text(type.displayName)
+                            }
                         }
                     }
                 } label: {

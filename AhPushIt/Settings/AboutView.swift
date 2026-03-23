@@ -50,6 +50,15 @@ struct AboutPane: View {
                     Divider()
                         .padding(.horizontal, 20)
 
+                    VStack(spacing: 4) {
+                        Text("\u{00A9} Jordi B\u{00F6}hme")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        (Text("Made with ") + Text("\u{2764}\u{FE0F}").foregroundColor(.red) + Text(" for the Open-Source Community"))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+
                     Text("MIT License")
                         .font(.caption)
                         .foregroundStyle(.tertiary)
