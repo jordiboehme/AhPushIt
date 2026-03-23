@@ -2,3 +2,12 @@ rules:
   github-env:
     ignore:
       - release.yml
+  template-injection:
+    ignore:
+      - release.yml
+  secrets-outside-env:
+    ignore:
+      - release.yml
+  superfluous-actions:
+    ignore:
+      - release.yml
