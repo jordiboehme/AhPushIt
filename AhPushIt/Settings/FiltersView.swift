@@ -22,6 +22,10 @@ struct FiltersPane: View {
         settings.filterRules.filter(\.isSelected).count
     }
 
+    var hasEnabledIMessageService: Bool {
+        settings.serviceConfigurations.contains { $0.type == .iMessage && $0.isEnabled }
+    }
+
     var body: some View {
         VStack(spacing: 0) {
             // Top bar: mode picker + status
@@ -48,6 +52,19 @@ struct FiltersPane: View {
                      : "ONLY selected apps will be forwarded.")
                     .font(.callout)
                     .foregroundStyle(.secondary)
+
+                if hasEnabledIMessageService {
+                    HStack(spacing: 6) {
+                        Image(systemName: "info.circle.fill")
+                            .foregroundStyle(.blue)
+                        Text("iMessage notifications are automatically blocked to prevent loops with the iMessage service.")
+                            .font(.callout)
+                    }
+                    .padding(8)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(.blue.opacity(0.08))
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
+                }
             }
             .padding(.horizontal, 20)
             .padding(.top, 20)
