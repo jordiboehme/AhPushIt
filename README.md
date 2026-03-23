@@ -1,4 +1,4 @@
-# AhPushIt
+# Ah, push it
 
 A macOS menu bar app that forwards notifications from the macOS Notification Center to a wide range of services — ntfy, Pushover, Slack, Discord, Telegram, Mattermost, n8n webhooks, generic JSON HTTP endpoints, and CSV file logging. Runs silently in your menubar, polling the system notification database and pushing new notifications to configurable endpoints with template support.
 
